@@ -1,0 +1,12 @@
+[TypeScriptのトランスコンパイラの実装](https://github.com/microsoft/TypeScript/tree/main/src/compiler)
+
+新規で開発するときは
+strict, noImplicitAny, strictNullChecks, noUnusedLocals / noUnusedParametersあたりはしっかりつけて開発したい。
+
+→strict以外は不要らしい（strictに含まれるため）
+→noUnusedLocals / noUnusedParametersはstrictに含まれない
+
+JavaScriptは動的型付け言語なので、実行時の振る舞いはPHPやPythonに似ている。すなわち、型チェッカーは型チェッカーが確認できる限りの変数のエラーを検出するが、実際に実行すると型を指定した変数には「どんな型の値」も代入されうる。
+
+> [!NOTE]
+> TSだけでWebアプリやるなら今はNext.jsかな～本当に選ばせてくれるならGo+Reactとかでやりたいけど
