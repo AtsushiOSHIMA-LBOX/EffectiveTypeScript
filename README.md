@@ -1,0 +1,2 @@
+# EffectiveTypeScript
+EffectiveTypeScriptの学習用リポジトリ
