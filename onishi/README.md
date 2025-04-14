@@ -2,9 +2,11 @@
 # 1章 TypeScriptとは何か
 
 - 項目1: TypeScriptとJavaScriptの関係を理解する
+
   型チェック厳しいのかと思ったら文字列と数値の結合許してるのちょっと意外
 
 - 項目2: どのTypeScriptオプションが使われているか把握する
+
   `tsconfig.json`は`jsonc`なのでコメントを入れられる
   インデックスアクセス時の暗黙的anyは`suppressImplicitAnyIndexErrors`で抑制できる。が影響範囲が大きいため、`@ts-ignore`が推奨されている。
   [リンク](https://www.typescriptlang.org/ja/tsconfig/#suppressImplicitAnyIndexErrors)
@@ -29,9 +31,11 @@
   `noUncheckedIndexedAccess`は便利そうだけど邪魔に感じることも多そう。
 
 - 項目3: コード生成は型に依存しないことを理解する
+
   実行時にはjavascriptに変換されているので型チェックは行われないし、(実行時の)パフォーマンスにも影響しない
 
 - 項目4: 構造的型付けに慣れる
+
   構造的型付けは便利そうだけどコード読むときに混乱しそう
 
   ``` typescript
@@ -58,6 +62,7 @@
   ```
 
 - 項目5: any型の使用を制限する
+
   そもそもany型を使いたくなるタイミングがよくわからない
 
 # 2章 TypeScriptの型システム
