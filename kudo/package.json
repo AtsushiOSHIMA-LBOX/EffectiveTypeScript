@@ -2,6 +2,9 @@
   "name": "kudo",
   "type": "module",
   "private": true,
+  "scripts": {
+    "build": "bun build chapter01/src/*.ts --outdir=dist"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
