@@ -20,18 +20,10 @@ curl -fsSL https://bun.sh/install | bash
 bun init # ローカル環境
 ```
 
-### リンタ兼フォーマッタのBiomeを追加
-
-```bash
-bun add --dev --exact @biomejs/biome
-bunx biome init
-```
-
 ### VSCode拡張機能
 
 - [Code Runner](https://marketplace.visualstudio.com/items/?itemName=formulahendry.code-runner) をインストール
 - [Bun for Visual Studio Code](https://marketplace.visualstudio.com/items/?itemName=oven.bun-vscode) をインストール
-- [Biome](https://marketplace.visualstudio.com/items/?itemName=biomejs.biome) をインストール
 - settings.jsonに以下を設定
 
 ```json
