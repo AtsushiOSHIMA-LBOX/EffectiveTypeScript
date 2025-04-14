@@ -90,3 +90,35 @@ statusEl!.textContent = 'Ready'; // !をつけることでnullチェックを通
 - 型は実行時のパフォーマンスに影響しない
   - ビルド時のオーバーヘッドはある
     - ただ、Microsoftが頑張ってGo言語で公式の高速ビルドツール開発中らしい
+
+## 項目4 構造的型付けに慣れる
+
+[004.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter01/src/004.ts)
+[004.test.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter01/src/004.test.ts)
+
+- `interface`: オブジェクト型の定義や拡張が必要な場合に使用。ライブラリやAPI設計に適している。
+- `type`: ユニオン型、交差型、プリミティブ型、関数型など、柔軟な型定義が必要な場合に使用。
+
+- 関数を書く時、宣言したプロパティを持ち、「それ以外のプロパティは持たない」引数で呼び出しがち
+  - しかし、TypeScriptの型システムでは表現できない
+  - 他のプロパティがあるかもしれないと常に思って起こう
+- 他言語のコンストラクタの印象が強いと、オブジェクトで余計なプロパティを持つものが代入できてしまうのが信じられない
+
+- DBやり取りするテストのとき、型定義しておけば楽だな〜〜〜
+  - 具体的な実装の詳細に依存しない!
+
+## 項目5 any型の使用を制限する
+
+[005.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter01/src/005.ts)
+
+- 言語サポート
+  - 補完
+  - ホバー
+  - リファクタリング
+  - その他多数のチェック
+- やってはいけない処理
+- 型の安全性を損なう
+- 型設計をないがしろにするのと同等
+- 既存コードの信頼性を損なう => これは結構心理的に大きい
+  - 型を信頼して安心して開発を継続したい
+  - 総じて、`any` 型を使うな
