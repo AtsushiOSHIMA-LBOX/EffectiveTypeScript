@@ -3,6 +3,7 @@
 ## リンク
 
 - [1章 TypeScriptとは何か](https://chaploud.github.io/EffectiveTypeScript/kudo/chapter01/)
+- [2章 TypeScriptの型システム](https://chaploud.github.io/EffectiveTypeScript/kudo/chapter02/)
 
 ## 実行環境
 
