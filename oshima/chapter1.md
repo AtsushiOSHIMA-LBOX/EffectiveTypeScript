@@ -4,7 +4,7 @@
 
 - TypeScriptはJavaScriptのスーパーセット(上位集合)
   - = JavaScriptはTypeScriptのサブセット(部分集合)
-- TypeScriptのコードはそのままTypeScriptで使える
+- JavaScriptのコードはそのままTypeScriptで使える
   - jsファイルをとりあえず.tsにして、徐々にTypeScriptの部分を増やしていくのもよさそう
 
 ## 項目2 どのTypeScriptオプションが使われているか把握する
