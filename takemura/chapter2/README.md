@@ -10,9 +10,9 @@ Nullチェックしたら下の記述ではNullがなくなるのすごいなぁ
 
 never型があるのは、型に対する演算における理論的な要請があったからというのが強い。一般的な手続き的プログラミング言語ではインターセクション型は存在しない。
 
-- [2-1.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter1/2-1.ts): neverを使うべき場面でvoidを使っても別に怒られない。しかしちゃんと意識するべきそう。
+- [2-1.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-1.ts): neverを使うべき場面でvoidを使っても別に怒られない。しかしちゃんと意識するべきそう。
 
-- [2-2.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter1/2-2.ts): p39 これくらいならinterfaceとtypeは等価に書ける。
+- [2-2.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-2.ts): p39 これくらいならinterfaceとtypeは等価に書ける。
 
 ## 項目8
 
@@ -34,7 +34,7 @@ Javaではラッパーオブジェクトとプリミティブ型は使い分け�
 
 ## 項目11
 
-[2-3.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter1/2-3.ts)
+[2-3.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-3.ts)
 
 非自明ではあるが、便利かな～という感じ。
 
