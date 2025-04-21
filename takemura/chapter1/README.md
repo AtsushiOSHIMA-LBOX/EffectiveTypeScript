@@ -11,7 +11,7 @@ JavaScriptは動的型付け言語なので、実行時の振る舞いはPHPやP
 > [!NOTE]
 > TSだけでWebアプリやるなら今はNext.jsかな～本当に選ばせてくれるならGo+Reactとかでやりたいけど
 
-[p22のオーバーロード版を作る試み。失敗。](./1-1.ts)
+[p22のオーバーロード版を作る試み。失敗。](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter1/1-1.ts)
 
 オーバーロードのような複雑なことをやろうとするとTSは不便だ。
 
