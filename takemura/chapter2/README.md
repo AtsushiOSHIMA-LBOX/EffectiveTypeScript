@@ -63,3 +63,77 @@ App({title: 'title', dummy: true});
 ```
 
 こういう記法もこの部分の性質に由来か。
+
+## 項目12
+
+classがまとめられるのと同じように、関数の型もまとめられる。これは意識したことがなかった。
+
+`declare` ... 実装を定義せずに関数や変数を定義できる。オブジェクト指向のインターフェースのグローバル版？　クラスには使えないみたい。
+
+- [2-4](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-4/) ... xx.d.tsの正しい使い方を初めて知った。これでJavaScriptの世界とTypeScriptの世界を繋げているのね。
+
+`typeof 関数` で関数式の型定義をサボる
+
+## 項目13
+
+```TypeScript
+// NG
+interface A {
+    'A';
+};
+```
+
+そもそもinterfaceはオブジェクトみたいな形か関数式しかサポートしていない。
+
+p67: 「interfaceとextendsによる拡張は、typeと&による拡張より少し多くエラーチェックを行います。」　
+
+interfaceは上書き（オーバーライド）ができる。typeはオブジェクトに対する複雑な操作ができる。正直ややこしい。
+
+## 項目14
+
+PHPは上位の構造にreadonly属性を付けると下位属性までreadonlyになる。一方JavaScriptのreadonlyはオブジェクトのような構造であれば変更ができる。
+
+```PHP
+<?php
+readonly class test {
+    public array $a;
+    public function __construct() {
+        $this->a = [
+            'a' => 'hello',
+        ];
+    }
+};
+
+$i = new test();
+$i->a['a'] = 'hello2'; // NG
+?>
+```
+
+あんまり関係ないけど設計思想として、ドメインオブジェクトはミュータブルに、dtoはイミュータブルに、という理解を今のところはしている。
+
+`readonly T[]` はあくまでも `ReadonlyArray<T>` のエイリアスでしかないため、関数の引数になんでもかんでも `readonly` をつけて動かせるというわけではない。
+
+[サバイバルTypeScript タプル (tuple)](https://typescriptbook.jp/reference/values-types-variables/tuple)
+
+[2-5](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-5.ts) NG例
+
+## 項目15
+
+
+[【TypeScript】Generics(ジェネリックス)を理解する](https://qiita.com/k-penguin-sato/items/9baa959e8919157afcd4)
+
+```TypeScript
+interface argTypes {
+  name: string;
+}
+
+function getName<T extends argTypes>(arg: T): string {
+  return arg.name;
+}
+
+getName({ name: "鈴木一郎" });
+```
+
+この場合typeでは記述できないらしい。
+
+[TypeScriptの型の省略と抜粋　OmitとPickを使ったまとめ](https://qiita.com/YSasago/items/318c0cbb95a764c6c317) Pickの逆、Omit
