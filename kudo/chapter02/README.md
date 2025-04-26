@@ -23,7 +23,20 @@
 
 ## 項目11 余剰プロパティチェックと型チェックを区別する
 
-## 項目12 可能なら関数式全体に型を適用する
+## 項目12 可能なら関数式全だいいっきゅする
+
+- 関数が第一級オブジェクトであることから、関数にも型を持たせられる(ありがたい)
+  - 似たような型を持つ関数が複数ある場合、型を共通化しておくと便利
+
+```typescript
+type BinaryFn = (a: number, b: number) => number;
+```
+
+- `typeof fetch` すでにある関数の型を取得する => 便利!
+  - これは `const fn: typeof fetch = ...` の書き方のほうが適用しやすい
+- `Parameters<typeof fetch>` で `fetch` の引数の型を取得できる => 便利!
+  - これは `function fn(...args: Parameters<typeof fetch>) {}` のように書く際に適用しやすい
+- いわば関数のインターフェース定義ヤナ
 
 ## 項目13 type（型エイリアス）とinterfaceの違いを知る
 
