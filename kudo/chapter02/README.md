@@ -35,7 +35,7 @@
 
 ## 項目11 余剰プロパティチェックと型チェックを区別する
 
-## 項目12 可能なら関数式全だいいっきゅする
+## 項目12 可能なら関数式全体に型を適用する
 
 [012.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter02/src/012.ts)
 
