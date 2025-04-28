@@ -25,6 +25,8 @@
 
 ## 項目12 可能なら関数式全だいいっきゅする
 
+[012.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter02/src/012.ts)
+
 - 関数が第一級オブジェクトであることから、関数にも型を持たせられる(ありがたい)
   - 似たような型を持つ関数が複数ある場合、型を共通化しておくと便利
 
@@ -35,10 +37,32 @@ type BinaryFn = (a: number, b: number) => number;
 - `typeof fetch` すでにある関数の型を取得する => 便利!
   - これは `const fn: typeof fetch = ...` の書き方のほうが適用しやすい
 - `Parameters<typeof fetch>` で `fetch` の引数の型を取得できる => 便利!
-  - これは `function fn(...args: Parameters<typeof fetch>) {}` のように書く際に適用しやすい
+  - これは `function fn(...args: Parameters<typeof fetch>): Promise<number> {}` のように書く際に適用しやすい
 - いわば関数のインターフェース定義ヤナ
 
 ## 項目13 type（型エイリアス）とinterfaceの違いを知る
+
+[013.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter02/src/013.ts)
+
+- どっち使ってもいいが、使い分けのポリシーは自分たちの中で決めておく
+- 関数の型の書き方、もっぱら1つ目ばかりで、下2つの書き方したことがなかったな
+
+```typescript
+type TFn = (x: number) => string;
+type TFnAlt = {
+  (x: number): string;
+};
+interface IFn {
+  (x: number): string;
+}
+```
+
+- `interface` で表現できないもの
+  - ユニオン型
+  - マップ型
+  - 条件型
+- 同じ名前でinterfaceを定義すると、マージされる(オーグメンテーション)
+  - 型宣言ファイルを提供する際は、`interface` を使おう
 
 ## 項目14 readonlyを使用して変更にまつわるエラーを避ける
 
