@@ -71,6 +71,8 @@ interface IFn {
 
 ## 項目14 readonlyを使用して変更にまつわるエラーを避ける
 
+[014.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter02/src/014.ts)
+
 - `readonly` 開発時にプロパティを変更しようとしたら警告表示
 - `Readonly<SomeType>` で全てのプロパティを`readonly`にする
 - 関数がオブジェクトをパラメータとして受け取り、それを変更しないのであれば、`Readonly`でラップするのは良いアイデア
@@ -85,3 +87,22 @@ interface IFn {
 **`Readonly/readonly` 使おう!**
 
 ## 項目15 型演算とジェネリック型を使って重複を避ける
+
+[015.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter02/src/015.ts)
+
+- 型に関してもDRY(Don't Repeat Yourself)を意識する
+- 拡張: `interface` => `extends`を使う
+- 抜き出す: `interface` => `XXX['yyy']`を使う
+  - `[K in 'key1' | 'key2']: XXX[K]` でマップ型を使う
+  - `[k in keyof XXX]: XXX[k]` でマップ型を使う
+  - `Pick<XXX, 'key1' | 'key2'>` でマップ型を使う
+- プロパティの型を共有しつつオプショナルにする
+  - `Partial<XXX>` でプロパティをオプショナルにする
+- **ホモモーフィック**: `readonly`や`?`は引き継がれる
+- オブジェクトから型を作る `typeof`
+  - JavaScriptの実行時に使える `typeof`とは別物!
+- `ReturnType`で関数の返り値の型を取得する
+
+> 重複は間違った抽象化よりはるかに無害である
+
+- 単に名前が一致しているからマージしてしまっては意味がない
