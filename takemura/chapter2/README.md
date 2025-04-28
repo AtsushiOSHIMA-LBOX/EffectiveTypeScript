@@ -111,7 +111,7 @@ $i->a['a'] = 'hello2'; // NG
 
 あんまり関係ないけど設計思想として、ドメインオブジェクトはミュータブルに、dtoはイミュータブルに、という理解を今のところはしている。
 
-`readonly T[]` はあくまでも `ReadonlyArray<T>` のエイリアスでしかないため、関数の引数になんでもかんでも `readonly` をつけて動かせるというわけではない。
+`readonly T[]` はあくまでも `ReadonlyArray<T>` のエイリアスでしかないため、関数の引数になんでもかんでも `readonly` をつけて同じように動かせるというわけではない。
 
 [サバイバルTypeScript タプル (tuple)](https://typescriptbook.jp/reference/values-types-variables/tuple)
 
@@ -137,3 +137,27 @@ getName({ name: "鈴木一郎" });
 この場合typeでは記述できないらしい。
 
 [TypeScriptの型の省略と抜粋　OmitとPickを使ったまとめ](https://qiita.com/YSasago/items/318c0cbb95a764c6c317) Pickの逆、Omit
+
+[マップ型(Mapped Types) step by stepの説明](https://qiita.com/u83unlimited/items/b283264bcee3c643b2b9)
+
+```JavaScript
+// OK
+const type = '実行時エラー';
+const error = '不明なエラー';
+const response = {
+    [type]: error,
+};
+// {'実行時エラー': '不明なエラー'}
+```
+
+JavaScriptでも変数名をキーにできる。
+
+```PHP
+$key = '名前';
+const RESPONSE = [
+    $key => 'John Doe',
+];
+// ['名前' => 'John Doe']
+```
+
+こっち（PHP版）も実はあまり知られていないかもしれない。
