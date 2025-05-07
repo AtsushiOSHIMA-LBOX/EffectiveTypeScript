@@ -63,3 +63,80 @@ EffectiveTypeScriptの学習用リポジトリ
 - ラッパーオブジェクトは他の言語でも使われる概念
 - TSはとにかく開発体験をよくしようという意思が感じられる
 
+- 関数型で戻り値の型をまとめて定義できる書き方は有効活用できそう
+  - 引数と戻り値の型を一度定義しておき、関数をシンプルに書ける
+  - よく見るのは3つの書き方
+
+    ```typescript
+    // 1. function宣言形式
+    function add(a: number, b: number): number {
+      return a + b;
+    }
+    
+    // 2. 変数に関数を代入する形式
+    const add = (a: number, b: number): number => {
+      return a + b;
+    }
+    
+    // 3. 型定義を先に行う形式
+    type MathFunc = (a: number, b: number) => number;
+    const add: MathFunc = (a, b) => a + b;
+    ```
+
+- interfaceとtypeは基本的にやれることはほぼ同じだが、使い分けるポイントがある
+  - interfaceの利点:
+    - エラーメッセージに型名が表示されて読みやすい
+    - 拡張が容易（declaration merging）
+    - ライブラリ開発時に便利（型の追加が容易）
+  - typeの利点:
+    - ユニオン型やマッピング型などの高度な型操作ができる
+    - シンプルで直感的に使える
+  - 基本方針としては「基本はinterfaceを使い、それで表現できないものをtypeで」というのが妥当そう
+    - ただ統一感を重視するなら「全部typeで」というのもありか
+- readonlyはできるだけつけるべき
+  - 特に引数への副作用を防ぐのに有効
+  - 実装時につけるべき
+    - 実装者が一番その関数が何をするべきか知っている
+    - 後から調査するのは手間がかかる
+  - ESlintである程度縛れる
+  - Date.setDate()など、元々破壊的なメソッドを持つオブジェクトの場合は効果が限定的であるため注意
+- tsのreadonlyは浅い
+  - オブジェクトのトップレベルのプロパティのみ変更できなくなる
+  - ネストされたオブジェクトは変更可能
+  - 深いreadonlyにするには別途対応が必要（DeepReadonly型など）
+- Pick, Omit, Partialなどのユーティリティ型を活用すべき
+  - 既存の型から必要な部分だけを抽出したり、オプショナルにしたりできる
+
+    ```typescript
+    interface State {
+      userId: string;
+      pageTitle: string;
+      recentFiles: string[];
+      currentFile: string;
+    }
+
+    // 必要なプロパティだけ取り出す
+    type RecentFilesState = Pick<State, 'userId' | 'pageTitle' | 'recentFiles'>;
+
+    // 特定のプロパティを除外する
+    type StateWithoutCurrentFile = Omit<State, 'currentFile'>;
+
+    // すべてのプロパティをオプショナルにする
+    type PartialState = Partial<State>;
+    ```
+
+- ReturnTypeも便利
+  - 関数の戻り値の型を取得できる
+
+    ```typescript
+    function getUserInfo() {
+      return { id: 1, name: 'User', email: 'user@example.com' };
+    }
+
+    type UserInfo = ReturnType<typeof getUserInfo>;
+    // { id: number; name: string; email: string; }
+    ```
+
+- DRY原則を意識しつつも、やりすぎには注意
+  - 見た目が似ているからという理由だけではなく、意味合いで統一すべき
+  - 組織のレベルに合わせた複雑さを選ぶべき
