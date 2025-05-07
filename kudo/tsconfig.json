@@ -23,7 +23,8 @@
   },
   "include": [
     "chapter01/src/**/*.ts",
-    "chapter02/src/**/*.ts"
+    "chapter02/src/**/*.ts",
+    "chapter03/src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
