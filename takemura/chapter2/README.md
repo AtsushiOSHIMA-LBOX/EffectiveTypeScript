@@ -166,7 +166,7 @@ const RESPONSE = [
 
 ## 項目16
 
-[2-5](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-6.ts)
+[2-6.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-6.ts)
 
 Recordはanyよりマシな程度という話を聞いたことがあるため、インデックスシグネチャも含め、ここで紹介されている解決策全てはなるべく使わない方がいいのだろう。
 
@@ -186,3 +186,22 @@ by chatGPT
 p91 最後のケース。例として書いてあるが使わない方がいいのは明らかだろう。
 
 ## 項目17
+
+インデックスシグネチャの例に合わせて書いてあるが、そもそもオブジェクトのキーにnumberを使うべきではない。
+
+代用策としてArrayがある。
+
+[2-7.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/takemura/chapter2/2-6.ts) Arrayはインデックスを飛ばして要素を追加できるので、Arrayでも十分代用可能？
+
+`ArrayLike`はArrayのモックのようなものなのだろうか、うーむ（実体はなさそう）
+
+[ArrayLikeのtscでの実装](https://github.com/microsoft/TypeScript/blob/81c951894e93bdc37c6916f18adcd80de76679bc/src/lib/es5.d.ts#L1555)
+
+```TypeScript
+interface ArrayLike<T> {
+    readonly length: number;
+    readonly [n: number]: T;
+}
+```
+
+やはり実体はなさそう
