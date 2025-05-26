@@ -13,3 +13,8 @@
 ## 項目20 変数の型がどのように決まるか理解する
 
 [020.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter03/src/020.ts)
+
+- `as const`
+- `satisfies`
+- `const` と `let` の型の違いを覚える
+- 型はせばめよう
