@@ -29,12 +29,16 @@ function getSquare(p1: Point as const, p2: Point as const): number; // NG
 
 ## 項目21
 
+p114
+
 ```TypeScript
 const pt = {x: 3, y: 4};
 const id = {name: 'Pythagoras'};
 
 const namedPoint = {...pt, ...id}; // ここで型アノテーションを付けない(項目18)
 ```
+
+スプレッド構文は便利だが少し不可解だという例。
 
 ```TypeScript
 const firstLast = {first: 'Harry', last: 'Truman'};
@@ -51,7 +55,9 @@ JSX, TSXではお馴染みのfalsyとtruthyだが、スプレッド構文でも�
 
 プロパティチェックでも型を絞り込めるのは、やはり構造的型付けが活きているからなのだと思う。
 
-`v is number` のような機能（ユーザー定義の型ガード）はあまり用いるべきではない。
+タグ付きユニオンはinterfaceやtypeで適切に設計しないと混乱を生み出しそう。
+
+`v is number` のような機能（ユーザー定義の型ガード）はあまり用いるべきではない。p119
 
 ## 項目23
 
