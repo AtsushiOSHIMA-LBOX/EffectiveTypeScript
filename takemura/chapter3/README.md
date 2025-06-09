@@ -26,3 +26,33 @@ type Point = [number, number];
 function apiCall(params: Record<string, string|number>) : T satisfies Record<string, Point>; // NG
 function getSquare(p1: Point as const, p2: Point as const): number; // NG
 ```
+
+## 項目21
+
+```TypeScript
+const pt = {x: 3, y: 4};
+const id = {name: 'Pythagoras'};
+
+const namedPoint = {...pt, ...id}; // ここで型アノテーションを付けない(項目18)
+```
+
+```TypeScript
+const firstLast = {first: 'Harry', last: 'Truman'};
+declare let hasMiddle: boolean;
+const president = {...firstLast, ...(hasMiddle && {middle: 'S'})};
+
+const falsySpread = {...false}; // こっちはNG
+const middle = (hasMiddle && {middle: 'S'}); // false | {middle: 'S'}
+```
+
+JSX, TSXではお馴染みのfalsyとtruthyだが、スプレッド構文でも有効。
+
+## 項目22
+
+プロパティチェックでも型を絞り込めるのは、やはり構造的型付けが活きているからなのだと思う。
+
+`v is number` のような機能（ユーザー定義の型ガード）はあまり用いるべきではない。
+
+## 項目23
+
+## 項目24
