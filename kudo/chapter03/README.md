@@ -18,3 +18,18 @@
 - `satisfies`
 - `const` と `let` の型の違いを覚える
 - 型はせばめよう
+
+## 項目21 オブジェクトを一度に構築する
+
+[021.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter03/src/021.ts)
+
+- オブジェクトは後から追加ではなく、一度に作る
+- スプレッド構文を活用すると型推論がうまく行く
+
+## 項目22 型の絞り込みを理解する
+
+[022.ts](https://github.com/chaploud/EffectiveTypeScript/blob/main/kudo/chapter03/src/022.ts)
+
+2025/06/09 p.117 中ほどまで
+
+- 色んなシチュエーションで型の絞り込みが行われる
