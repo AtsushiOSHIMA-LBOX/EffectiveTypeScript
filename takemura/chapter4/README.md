@@ -65,9 +65,32 @@ const numArray2: [number, ...number[]] = []; // NG
 
 ## 項目36
 
+ラップしたらいいのは分かるけど、そこまでやるならオーバーライドもサポートしてほしい（ts-compilerの都合上無理なのはわかるが…）。一応静的解析のルールで対応可能か？
+
+strictNullCheckをオフにしないとnullやundefinedを明示的に使いたいときに仕えない。一方で、strictNullCheckをオフにするのはより悪い状態を招く。ジレンマがある。適切なコードレビューが必須。
+
+```typescript
+type Product = ValuedProduct | UnvaluedProduct;
+
+interface ValuedProduct {
+    title: string;
+    priceDollars: number;
+}
+
+interface UnvaluedProduct {
+    title: string;
+}
+```
+
+まあ、多分こっちのほうが本質的にいいんだと思う。(項目29)
+
 ## 項目37
 
+オプションプロパティはnullと同じような欠陥がある。オプションプロパティをどうしても使わなければいけないときは、オプションプロパティを使っていない型と同時に宣言して変換する。
+
 ## 項目38
+
+引数には単一のオブジェクトより複数のオブジェクトの方がいいかなとなんとなく思っていたが（ReactのPropsパターンがそんなにイケてると思っていないので）本では優劣をつけていなかった。
 
 ## 項目39
 
