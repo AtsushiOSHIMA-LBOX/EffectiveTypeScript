@@ -29,7 +29,34 @@ function eatDinner3() {
 
 ### 項目45
 
+型シグネチャって何？？？
+
+p208。どのみち悪い例だけど…
+
+```TypeScript
+type promise1 = Promise<MountainPeak>; // きれい
+
+type promise2 = Promise<unknown>; // 意味ある
+type promise3 = Promise<MountainPeak|unknown>; // 意味ない（型の拡大より）
+```
+
+項目9。TypeScriptよりも人間の方が型について詳しいときなので、型アサーションが使える。
+
+影響範囲が最小になるようにリファクタリングをする。そしてそれができるのがTypeScript。ブラックボックステストを意識。
+
+責任の取り方はコミュニケーション（属人化）ではない。
+
 ### 項目46
+
+unknown
+
+- 全ての型が代入可能
+- unknownはunknownにしか代入できない
+
+never
+
+- 全ての型が代入不可能
+- neverは全ての型に代入できる
 
 ### 項目47
 
