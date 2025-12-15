@@ -3,3 +3,4 @@
 - [3章メモ](./chapter3)
 - [4章メモ](./chapter4)
 - [5章メモ](./chapter5)
+- [6章メモ](./chapter6)
