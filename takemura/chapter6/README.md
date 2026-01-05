@@ -24,7 +24,22 @@ PHPDocsにもジェネリックがある（PHPにはない）。びっくり。
 
 ## 項目52
 
+条件型は省略形で書けないっぽい
+
+```TypeScript
+declare function double<T extends string|number>(x: T): T extends string ?: number; // NG
+```
+
+2つならこれでいいけど、3つ以上だとかなり険しそう。実際別に分けられるなら分けたほうが賢い。これをわざわざ書いているのは、JavaScriptのnumberとstringに関する厄介な仕様があるからにすぎない。
+
+TypeScript5.9はもう出ている。
+
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-9.html
+https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/
+
 ## 項目53
+
+ムズイ。黒魔術みをかなり感じる。普遍的というよりは、TypeScript独自の言語仕様に沿った結果というか。
 
 ## 項目54
 
