@@ -43,10 +43,51 @@ https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/
 
 ## 項目54
 
+[応用例のPrismaの説明](https://zenn.dev/tockn/articles/0e6eac6220e072) ←スキーマを定義すれば、自動でSQLをリントしてくれるバックエンド向けライブラリ。使っているものとしてはおそらくテンプレートリテラル。
+
+ここまで豪華だと、ブラウザの一機能を担うというよりは、もっと適切な活躍の場がありそうな気がする。コンパイラ作成とか。逆にここまで自由度が高くなっても対応できるJavaScriptとtscもすごい。
+
 ## 項目55
 
 ## 項目56
 
+`Resolve`はめちゃ便利だし、コーディングルールに取り入れてもいいと思うが、どちらかというと拡張機能とかでサポートしてほしそうな機能ではある。
+
 ## 項目57
+
+[末尾再帰 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%9C%AB%E5%B0%BE%E5%86%8D%E5%B8%B0)
+
+競プロなどの文脈で「末尾再帰にしなさい」とはよく言われるが、なぜなのかは理解してなかった。こんな力技だったのか。。
+
+```TypeScript
+type ToSnake<T extends string> =
+    string extends T
+        ? string
+        : T extends `${infer First}${infer Rest}`
+            ? (First extends Uppercase<First>
+                ? `_${Lowercase<First>}${ToSnake<Rest>}`
+                : `${First}${ToSnake<Rest>}`
+            )
+            : T;
+
+// 言い換え
+function toSnake(str: string): string {
+    if (str.length === 0) {
+        return str; // 空文字列の場合はそのまま返す
+    }
+
+    const first = str[0];
+    const rest = str.slice(1);
+
+    if (first === first.toUpperCase()) {
+        // toSnakeの戻り値がこの関数の戻り値でない→末尾再帰ではない
+        return `_${first.toLowerCase()}${toSnake(rest)}`;
+    } else {
+        return `${first}${toSnake(rest)}`;
+    }
+}
+```
+
+Safariしかサポートしてない。Chromeはダメらしい。
 
 ## 項目58
